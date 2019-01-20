@@ -14,3 +14,5 @@ todo.forEach(function (todo, index) {
 for (let i = 0; i < todo.length; i++) {
     console.log(`${i + 1}. ${todo[i]}`)
 }
+
+console.log(todo.indexOf('eat'))

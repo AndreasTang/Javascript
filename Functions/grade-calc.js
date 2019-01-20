@@ -2,7 +2,12 @@
 //15/20 --> you get a c(75%)!
 //a(90-100) b(80-89) c(70-79) d(60-69) f(0-59)
 
-const grade = function (studentScore, totalScore) {
+const grade = (studentScore, totalScore) => {
+
+    if (typeof studentScore !== 'number' || typeof totalScore !== 'number') {
+        throw Error ('Please enter vaild "Number" !!')
+    }
+
     let = studentGrade = ''
     const percent = studentScore / totalScore
     if (percent >= 0.9 && percent <= 1) {
@@ -18,14 +23,11 @@ const grade = function (studentScore, totalScore) {
     } else {
         return `Score range is from 0 to ${totalScore}, please enter a vild number`
     }
-
     return `You got ${studentGrade}(${percent * 100})% grade!!`
-
 }
 
-console.log(grade(10, 100))
-console.log(grade(30,50))
-console.log(grade(80, 80))
-console.log(grade(20,25))
-console.log(grade(120, 110))
-console.log(grade(-100, 50))
+try {
+    console.log(grade(80, 100)) // you can test your input here
+} catch (e) {
+    console.log(e.message)
+}
