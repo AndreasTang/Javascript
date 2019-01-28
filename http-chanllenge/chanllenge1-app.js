@@ -1,10 +1,7 @@
 //callback function test....
 
-findCountryName('TW', (name, error) => {
-    if (name) {
-        console.log(name)
-    } else if (error) {
-        console.log(`Error: ${error}`)
-    }
-    
+getCurrentCountry().then((country) => {
+    console.log(country.name)
+}).catch((error) => {
+    console.log(error)
 })
