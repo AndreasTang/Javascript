@@ -7,6 +7,7 @@ const selectGun = document.querySelector('#shipGunInput')
 const selectDescription = document.querySelector('#shipDescription')
 const lastEdit = document.querySelector('#lastEdited')
 let navyShipList = getShipsJSON()
+let ship
 
 const reflashShip = () => {
     ship = navyShipList.find((ship) => ship.id === shipId)
@@ -18,12 +19,12 @@ const reflashShip = () => {
     selectClass.value = ship.shipClass
     selectGun.value = ship.mainGun
     selectDescription.value = ship.Description
-    showEditTime(ship.updateTimeStamp)
+    showEditTime(ship.updateTimeStamp, lastEdit)
 
 } 
 
-const showEditTime = (time) => {
-    lastEdit.textContent = `last edited ${calTimeDeff(time)}`
+const showEditTime = (time, lastEditEl) => {
+    lastEditEl.textContent = `last edited ${calTimeDeff(time)}`
 }
 
 reflashShip()

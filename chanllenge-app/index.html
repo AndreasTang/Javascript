@@ -2,33 +2,50 @@
 
 <html>
     <head>
-
+        <link href="/styles/styles.css" rel="stylesheet">
     </head>
     
     <body>
-        <h1>This is the list of all Royal Andreas Navy battle ships</h1>
-        <p>You can add new ships here by submit a new ship form below</p>
-        <form id = "first-Form">
-            <p><input name = "newShips" type = "text" placeholder="Enter a new ship name"></p>
-            <p><input name = "newClass" type = "text" placeholder="Enter newship's Class"></p>
-            <p><input name = "newGun" type = "text" placeholder="Enter newship's MainGun"></p>
-            <p><textarea name = "newDescription" type = "text" placeholder="Enter newship's Description"></textarea></p>
-            <button>Submit</button>
-        </form>
-        <p>Or you want to search a ship by enter her name</p>
-        <input id = "input-box" type = "text" placeholder="Enter a ship name">
-        <input type = "checkbox" id = "hideSunk">Hide sunk ships
-        <input type = "checkbox" id = "hideDetail">Hide detail
-        <select id="filterBy">
-            <option value="byEdited">sort by last edited</option>
-            <option value="byCreated">sort by created</option>
-            <option value="byAlphabetical">sort by alphabetical</option>
-        </select>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Royal Andreas Navy battle ships list</h1>
+                <h2 class="header__subtitle">You can add new ships here by submit a new ship form below</h2>
+            </div>
+        </header>
+        <div class="actions">
+            <div class="actions__container">
+                <form id = "first-Form">
+                    <p><input name = "newShips" type = "text" placeholder="Enter a new ship name"></p>
+                    <p><input name = "newClass" type = "text" placeholder="Enter newship's Class"></p>
+                    <p><input name = "newGun" type = "text" placeholder="Enter newship's MainGun"></p>
+                    <p><textarea name = "newDescription" type = "text" placeholder="Enter newship's Description"></textarea></p>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="subheader">
+            <div class="container">
+                <p class="subtext">Search a ship by name</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="actions__container">
+                <input class="input" id = "input-box" type = "text" placeholder="Enter a ship name">
+                <input class="input" type = "checkbox" id = "hideSunk">Hide sunk ships
+                <input class="input" type = "checkbox" id = "hideDetail">Hide detail
+                <select class="dropdown"id="filterBy">
+                    <option value="byEdited">sort by last edited</option>
+                    <option value="byCreated">sort by created</option>
+                    <option value="byAlphabetical">sort by alphabetical</option>
+                </select>
+            </div>
+        </div>
+        
         <div id = "ship-filter"></div>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-        <script src="uuidv4.js"></script>
-        <script src = "shiplist-function.js"></script>
-        <script src = "shiplist.js"></script>
+        <script src="/script/uuidv4.js"></script>
+        <script src = "/script/shiplist-function.js"></script>
+        <script src = "/script/shiplist.js"></script>
     </body>
 </html>
 

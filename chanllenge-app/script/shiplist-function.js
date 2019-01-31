@@ -1,5 +1,12 @@
 'use strict'
 
+// for time calculating
+const createAt = () => moment().valueOf()
+
+const updateAt = () => moment().valueOf()
+
+const calTimeDeff = (time) => moment(time).fromNow()
+
 // find json data from storage for further useage, if there are no json, give it null array 
 const getShipsJSON = () => {
     const shipsJSON = localStorage.getItem('ships')
@@ -16,7 +23,7 @@ const filterName = (shipArrays, inputData) => {
     filterAll(shipArrays, inputData)
     renderCounter(inputData.filteredArrays)
 
-    if (!inputData.filteredArrays.length) {
+    if (shipArrays.length === 0) {
         renderNone()
     }
 
@@ -44,6 +51,7 @@ const renderCounter = (filteredArrays) => {
     document.querySelector('#ship-filter').innerHTML = ''
     const counter = document.createElement('h3')
     counter.textContent = `There are ${filteredArrays.length} ships on the list`
+    counter.classList.add('empty-message')
     document.querySelector('#ship-filter').appendChild(counter)
 }
 
@@ -63,13 +71,16 @@ const renderAll = (filteredArray, filteredArrays) => {
 
 // render section
 const renderName = (filteredArray) => { 
-    const nameContent = document.createElement('div')
+    const nameContent = document.createElement('a')
     const button = document.createElement('button')
-    const newNameTag = document.createElement('a')
+    const newNameTag = document.createElement('p')
     const checkBoxes = document.createElement('input')
+    const editMessage = document.createElement('p')
     
     appendCheckBox(nameContent, checkBoxes) //parents, children
-    appendLink(nameContent, newNameTag, `Name: ${filteredArray.shipName}`, filteredArray.id)
+    appendLink(nameContent, filteredArray.id)
+    appendIng(nameContent, newNameTag, filteredArray.shipName)
+    appendIng(nameContent, editMessage, `last edited ${calTimeDeff(filteredArray.updateTimeStamp)}`)
     appendIng(nameContent, button, 'X')
 
     button.addEventListener('click', () => {
@@ -83,7 +94,7 @@ const renderName = (filteredArray) => {
         saveShips(navyShipList)
         filterName(navyShipList, inputData)
     })
-
+    nameContent.classList.add('list-item')
     document.querySelector('#ship-filter').appendChild(nameContent)
     
 }
@@ -103,6 +114,7 @@ const renderGun = (filteredArray) => {
 const renderNone = () => {
     const newNoneTag = document.createElement('h4')
     newNoneTag.textContent = 'No Data, Please input some ship'
+    newNoneTag.classList.add('empty-message')
     document.querySelector('#ship-filter').appendChild(newNoneTag)
 }
 
@@ -120,10 +132,8 @@ const appendIng = (parents, element, content) => {
     parents.appendChild(element)
 }
 
-const appendLink = (parents, element, content, id) => {
-    element.textContent = content
+const appendLink = (element, id) => {
     element.setAttribute('href', `/edit.html#${id}`)
-    parents.appendChild(element)
 }
 
 const appendCheckBox = (parents, element) => {
@@ -160,13 +170,6 @@ const sinkShip = (id) => {
         foundId.sink = !foundId.sink
     }
 }
-
-// for time calculating
-const createAt = () => moment().valueOf()
-
-const updateAt = () => moment().valueOf()
-
-const calTimeDeff = (time) => moment(time).fromNow()
 
 // for sorting
 const sorting = (arrays, sortBy) => {

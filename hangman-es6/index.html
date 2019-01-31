@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 
 <html>
-    <head></head>
+    <head>
+        <title>Hangman</title>
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/image/favicon.png" rel="icon">
+    </head>
     <body>
-        <h2>This is hangman game</h3>
-        <p id = 'startText'>Click GameStart to play</p>
-        <p><button id = 'gameStart'>Game Start</button></p>
-        <p></p>
-        <form id ='inputForm'>
-            <p><input name = 'guess' type="text" placeholder="Guess a character"><button id = 'send'>Send</button></p>
-        </form>
-        <div id = 'showInf'></div>
-        <script src = "functionLib.js"></script>
-        <script src = "app.js"></script>
+        <div>
+            <h2 class="puzzle">This is hangman game</h3>
+            <div id="showCode" class="puzzle"></div>
+            <div id = 'showInf'></div>
+            <p id = 'startText'>Click GameStart to play</p>
+            <p id="button"><button id = 'gameStart' class="button">Game Start</button></p>
+            <form id ='inputForm'>
+                <p><input name = 'guess' type="text" placeholder="Guess a character"><button id = 'send'>Send</button></p>
+            </form>
+        </div>
+        <script src = "/script/functionLib.js"></script>
+        <script src = "/script/app.js"></script>
     </body>
 </html>

@@ -31,23 +31,28 @@ class Hangman {
         const bullEyes = this.answerString === this.code
         const printCounter = `You have ${this.counter} guesses left`
         const printGuess = `The character you guess is "${guess}"`
+        const guessedLetter = `Guessed: ${this.guessed}`
 
         if (this.counter >= 0 && bullEyes) {
 
-            show(`Answer is ${this.vocabulary} , You win`)
+            showCode(this.code)
+            show(`Answer is ${this.vocabulary}, You win`, 'showInf', 'p')
             this.gameOver = true
             changeText()
                 
         } else if (this.counter === 0 && bullEyes === false) {
-    
-            show(`Answer is ${this.answerString}, Your progress is ${this.code}, You Lose`)
+
+            showCode(this.code)
+            show(`Answer is ${this.answerString}, You Lose`, 'showInf', 'p')
             this.gameOver = true
             changeText()
         
         } else {
 
-            show(`${printGuess} , ${this.code} , ${printCounter}`)
-        
+            show(`${printGuess}`, 'showInf', 'p')
+            showMuti(`${guessedLetter}`, 'showInf', 'p')
+            showCode(this.code)
+            showMuti(`${printCounter}`, 'showInf', 'p')
         }
     }
 
@@ -70,12 +75,19 @@ class Hangman {
                     game.printResult(guess)
                 }
             } else if (!isGuessVaild) {
-                show('Please enter a vaild Character')
+                show('Please enter a vaild Character', 'showInf', 'p')
+                showMuti(`Guessed: ${this.guessed}`, 'showInf', 'p')
+                showCode(this.code)
+                showMuti(`You have ${this.counter} guesses left`, 'showInf', 'p')
             } else if (!isGuessFirstGuessed) {
-                show('This character is already guessed, please guess other character')
+                show('This character is already guessed!!', 'showInf', 'p')
+                showMuti(`Guessed: ${this.guessed}`, 'showInf', 'p')
+                showCode(this.code)
+                showMuti(`You have ${this.counter} guesses left`, 'showInf', 'p')
             }
         } else {
-            show('Game is already over, click Restart to play again')
+            show('Game is already over', 'showInf', 'p')
+            showMuti('Click Restart to play again', 'showInf', 'p')
         }
     }
 
@@ -86,8 +98,10 @@ document.querySelector('#gameStart').addEventListener('click', async () => {
     game = new Hangman(puzzle)
     console.log(game.vocabulary)
     console.log(game.counter)
-    show(`Game started, Answer length is ${game.answerArray.length} characters long and you have ${game.counter} chances to guess`)
-
+    show(`Game started`, 'showInf', 'p')
+    showMuti(`Puzzle have ${game.answerArray.length} characters`, 'showInf', 'p')
+    showMuti(`Your chances: ${game.counter}`, 'showInf', 'p')
+    clearText()
 })
 
 document.querySelector('#inputForm').addEventListener('submit', (e) => {
