@@ -2,6 +2,8 @@
 
 <html>
     <head>
+        <title>Royal Andreas Navy List</title>
+        <link href="/image/favicon.png" rel="icon">
         <link href="/styles/styles.css" rel="stylesheet">
     </head>
     
@@ -19,7 +21,7 @@
                     <p><input name = "newClass" type = "text" placeholder="Enter newship's Class"></p>
                     <p><input name = "newGun" type = "text" placeholder="Enter newship's MainGun"></p>
                     <p><textarea name = "newDescription" type = "text" placeholder="Enter newship's Description"></textarea></p>
-                    <button>Submit</button>
+                    <button class="button button--secondary">Submit</button>
                 </form>
             </div>
         </div>
@@ -29,7 +31,7 @@
             </div>
         </div>
         <div class="actions">
-            <div class="actions__container">
+            <div class="actions__container actions__container--spaced">
                 <input class="input" id = "input-box" type = "text" placeholder="Enter a ship name">
                 <input class="input" type = "checkbox" id = "hideSunk">Hide sunk ships
                 <input class="input" type = "checkbox" id = "hideDetail">Hide detail
@@ -40,8 +42,9 @@
                 </select>
             </div>
         </div>
-        
-        <div id = "ship-filter"></div>
+        <div class="container">
+            <div id = "ship-filter"></div>
+        </div>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
         <script src="/script/uuidv4.js"></script>
         <script src = "/script/shiplist-function.js"></script>

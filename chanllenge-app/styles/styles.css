@@ -167,6 +167,17 @@ a {
     transition: background .3s ease;
 }
 
+.list-item--recolor {
+    text-decoration: none;
+    color: #333333;
+    background: rgb(188, 197, 199);
+    border: 1px solid #dedfe0;
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    display: block;
+    transition: background .3s ease;
+}
+
 .list-item:hover {
     background: #eeeeee;
 }

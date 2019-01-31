@@ -61,10 +61,14 @@ const renderAll = (filteredArray, filteredArrays) => {
         if (inputData.hideDetails === true) {
             renderName(filteredArray)
         } else {
+            const descriptionSection = document.createElement('div')
+            descriptionSection.classList.add('list-item--recolor')
+
             renderName(filteredArray)
-            renderClass(filteredArray)
-            renderGun(filteredArray)
-            renderDescription(filteredArray)
+            renderClass(filteredArray, descriptionSection)
+            renderGun(filteredArray, descriptionSection)
+            renderDescription(filteredArray, descriptionSection)
+            document.querySelector('#ship-filter').appendChild(descriptionSection)
         }                
     }
 }
@@ -76,12 +80,15 @@ const renderName = (filteredArray) => {
     const newNameTag = document.createElement('p')
     const checkBoxes = document.createElement('input')
     const editMessage = document.createElement('p')
+
+    newNameTag.classList.add('list-item__title')
+    editMessage.classList.add('list-item__subtitle')
     
     appendCheckBox(nameContent, checkBoxes) //parents, children
     appendLink(nameContent, filteredArray.id)
     appendIng(nameContent, newNameTag, filteredArray.shipName)
     appendIng(nameContent, editMessage, `last edited ${calTimeDeff(filteredArray.updateTimeStamp)}`)
-    appendIng(nameContent, button, 'X')
+    appendIng(nameContent, button, 'Delete')
 
     button.addEventListener('click', () => {
         findIds(filteredArray.id)
@@ -99,16 +106,16 @@ const renderName = (filteredArray) => {
     
 }
 
-const renderClass = (filteredArray) => {
+const renderClass = (filteredArray, descriptionSection) => {
     const newClassTag = document.createElement('p')
     newClassTag.textContent = `Class: ${filteredArray.shipClass}`
-    document.querySelector('#ship-filter').appendChild(newClassTag)
+    descriptionSection.appendChild(newClassTag)
 }
 
-const renderGun = (filteredArray) => {
+const renderGun = (filteredArray, descriptionSection) => {
     const newGunTag = document.createElement('p')
     newGunTag.textContent = `Main gun: ${filteredArray.mainGun}`
-    document.querySelector('#ship-filter').appendChild(newGunTag)
+    descriptionSection.appendChild(newGunTag)
 }
 
 const renderNone = () => {
@@ -118,10 +125,10 @@ const renderNone = () => {
     document.querySelector('#ship-filter').appendChild(newNoneTag)
 }
 
-const renderDescription = (filteredArray) => {
+const renderDescription = (filteredArray, descriptionSection) => {
     const newDescriptionTag = document.createElement('p')
     newDescriptionTag.textContent = filteredArray.Description
-    document.querySelector('#ship-filter').appendChild(newDescriptionTag)
+    descriptionSection.appendChild(newDescriptionTag)
 }
 
 // end of render section
