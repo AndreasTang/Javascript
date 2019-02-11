@@ -19,7 +19,7 @@ const changeText = function () {
 }
 
 const fetchGame = async () => {
-    const newPuzzle = await fetch('http://puzzle.mead.io/puzzle?wordCount=1')
+    const newPuzzle = await fetch('//puzzle.mead.io/puzzle?wordCount=1')
 
     if (newPuzzle.status === 200) {
         const newGame = newPuzzle.json()

@@ -1,3 +1,19 @@
+/*
+// Colors
+$off-black: #20222b;
+$dark-blue: #333745;
+$blue: #3c4251;
+$light-blue: #464b5e;
+$off-white: #a5afd7;
+$purple: #8357c5;
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+$desktop-breakpoint: 45rem;
+*/
+
 /* Base Styles */
 
 * {
@@ -11,7 +27,8 @@ html {
 }
 
 body {
-  color: #333333;
+    background: #2B292E;
+  color: #fafafa;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
 }
@@ -21,7 +38,7 @@ button {
 }
 
 a {
-    color: #396684;
+    color: #6F439C;
 }
 
 /* Container */
@@ -35,8 +52,8 @@ a {
 /* Header */
 
 .header {
-  background: #43799c;
-  color: white;
+  background: #6F439C;
+  color:white;
   padding: 1.6rem 0;
 }
 
@@ -46,29 +63,18 @@ a {
 }
 
 .header__subtitle {
+  /* color: #777; */
   font-size: 1.6rem;
   font-weight: 300;
 }
 
-/* SubText */
-
-.subheader {
-    background: #43799c;
-    color: white;
-    padding: 1.6rem 0;
-  }
-
-.subtext {
-    font-size: 1.6rem;
-    font-weight: 300;
-  }
-
 /* Actions Bar */
 
 .actions {
-    background-color: #F7F7F7;
-    border-bottom: 1px solid #dedfe0;
-    padding: .8rem
+    background-color: #353239;
+    /* border-bottom: 1px solid #dedfe0; */
+    /* color: #333333; */
+    padding: 1rem
 }
 
 .actions__container {
@@ -80,17 +86,13 @@ a {
     padding: 0 1.6rem;
 }
 
-.actions__container--gray {
-    background-color: rgb(175, 175, 175)
-}
-
 .actions__container--spaced {
     justify-content: space-between
 }
 
 /* Form Inputs */
 
-.quickinput {
+.input {
     border: none;
     font-size: 1.4rem;
     font-weight: 300;
@@ -99,39 +101,28 @@ a {
     padding: .4rem .8rem;
 }
 
-.input {
-    border: 1px solid #DEDFE0;
-    border-radius: 5px;
-    font-size: 1.4rem;
-    font-weight: 300;
-    height: 3rem;
-    margin-right: .8rem;
-    padding: .4rem .8rem;
+.checkbox {
+    display: flex;
+    align-items: baseline;
 }
 
-.dropdown {
-    border-radius: 0;
-    border: 1px solid #DEDFE0;
-    background: white;
-    font-size: 1.4rem;
-    font-weight: 300;
-    height: 3rem;
-    margin-right: .8rem;
+.checkbox > input {
+    margin-right: .4rem;
 }
 
 .button {
-    background: #43799c;
+    background: #7044a0;
     border: none;
-    border-bottom: 2px solid #396684;
+    border-bottom: 2px solid #603a88;
     color: white;
     font-size: 1.4rem;
     font-weight: 300;
     padding: .8rem;
-    transition: background .3s ease;
+    transition: background .3s ease, color .3s ease;
 }
 
 .button:hover {
-    background: #396684;
+    background: #5F3A87;
 }
 
 .button--secondary {
@@ -141,6 +132,18 @@ a {
 
 .button--secondary:hover {
     background: #6E6E6E;
+}
+
+.button--text {
+    background: none;
+    border: none;
+    color: #aaa;
+}
+
+.button--text:hover {
+    background: none;
+    color: white;
+    text-decoration: underline;
 }
 
 /* Note editor */
@@ -171,28 +174,32 @@ a {
 
 .list-item {
     text-decoration: none;
-    color: #333333;
-    background: #F7F7F7;
-    border: 1px solid #dedfe0;
+    color: #fafafa;
+    cursor: pointer;
+    background: #353239;
+    border: 1px solid #423e47;
     margin: 1.6rem 0;
-    padding: 1.6rem;
+    padding: 1rem 1.6rem;
     display: block;
     transition: background .3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 }
 
-.list-item--recolor {
-    text-decoration: none;
-    color: #333333;
-    background: rgb(188, 197, 199);
-    border: 1px solid #dedfe0;
-    margin: 1.6rem 0;
-    padding: 1.6rem;
-    display: block;
-    transition: background .3s ease;
+.list-item__container {
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 300;
+    align-items: baseline;
+}
+
+.list-item__container > *:first-child {
+    margin-right: .8rem;
 }
 
 .list-item:hover {
-    background: #eeeeee;
+    background: #3d3941;
 }
 
 .list-item__title {
@@ -207,12 +214,10 @@ a {
     font-style: italic;
 }
 
-.empty-message {
-    text-align: center;
-    margin: 3.2rem 0;
+.list-title {
+    margin: 3.2rem 0 1.6rem;
 }
 
-.checkbox {
-    display: flex;
-    align-items: baseline;
+.empty-message {
+    margin: 3.2rem 0;
 }

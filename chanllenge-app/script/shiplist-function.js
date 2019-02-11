@@ -80,11 +80,14 @@ const renderName = (filteredArray) => {
     const newNameTag = document.createElement('p')
     const checkBoxes = document.createElement('input')
     const editMessage = document.createElement('p')
+    const labelTag = document.createElement('label')
+    const labelText = document.createElement('span')
 
+    labelText.textContent = 'click to sink it'
     newNameTag.classList.add('list-item__title')
     editMessage.classList.add('list-item__subtitle')
     
-    appendCheckBox(nameContent, checkBoxes) //parents, children
+    appendCheckBox(nameContent, checkBoxes, labelTag, labelText) //parents, children 
     appendLink(nameContent, filteredArray.id)
     appendIng(nameContent, newNameTag, filteredArray.shipName)
     appendIng(nameContent, editMessage, `last edited ${calTimeDeff(filteredArray.updateTimeStamp)}`)
@@ -143,9 +146,14 @@ const appendLink = (element, id) => {
     element.setAttribute('href', `/edit.html#${id}`)
 }
 
-const appendCheckBox = (parents, element) => {
+const appendCheckBox = (parents, element, label, content) => {
     element.setAttribute('type', 'checkbox')
-    parents.appendChild(element)
+    element.setAttribute('id', 'checkbox')
+    label.setAttribute('for', 'checkbox')
+    label.appendChild(element)
+    label.appendChild(content)
+    label.classList.add('checkbox')
+    parents.appendChild(label)
 }
 
 const appendATag = (parents, element) => {
@@ -215,12 +223,18 @@ const sorting = (arrays, sortBy) => {
 
 //sumbit the form
 const pushArray = (navyShipList, e, id) => {
+
+    const shipName = e.target.elements.newShips.value.trim()
+    const shipClass = e.target.elements.newClass.value.trim()
+    const mainGun = e.target.elements.newGun.value.trim()
+    const Description = e.target.elements.newDescription.value.trim()
+
     navyShipList.push({
         id: id,
-        shipName: e.target.elements.newShips.value,
-        shipClass: e.target.elements.newClass.value,
-        mainGun: e.target.elements.newGun.value,
-        Description: e.target.elements.newDescription.value,
+        shipName: shipName,
+        shipClass: shipClass,
+        mainGun: mainGun,
+        Description: Description,
         sink: false,
         createTimeStamp: createAt(),
         updateTimeStamp: updateAt()

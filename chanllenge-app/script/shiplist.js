@@ -47,13 +47,19 @@ document.querySelector('#filterBy').addEventListener('change', (e) => {
 document.querySelector('#first-Form').addEventListener('submit', (e) => {
     e.preventDefault()
     const id = uuidv4()
-    pushArray(navyShipList, e, id)
-    saveShips(navyShipList)
-    e.target.elements.newShips.value = ''
-    e.target.elements.newClass.value = ''
-    e.target.elements.newGun.value = ''
-    e.target.elements.newDescription.value = ''
-    location.assign(`/edit.html#${id}`)
+    const text = e.target.elements.newShips.value.trim()
+    if (text.length > 0) {
+        pushArray(navyShipList, e, id)
+        saveShips(navyShipList)
+        e.target.elements.newShips.value = ''
+        e.target.elements.newClass.value = ''
+        e.target.elements.newGun.value = ''
+        e.target.elements.newDescription.value = ''
+        location.assign(`/edit.html#${id}`)
+    } else {
+        alert('ship name can not be empty!!')
+    }
+    
 })
 
 // for muti page with same data and state
