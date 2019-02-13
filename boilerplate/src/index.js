@@ -1,11 +1,8 @@
-const testName = 'Loli'
-console.log(testName)
+//import './functionlib'
+import oldWaifu, {add, myWaifu} from './functionlib'
+import scream from './scream'
 
-class createName {
-    myName() {
-        return `my name is Andreas`
-    }
-}
-
-const firName = new createName
-console.log(firName.myName())
+console.log('this is index')
+console.log(add(5,10))
+console.log(`My fist waifu is ${oldWaifu('Nerine')} and my new waifu is ${myWaifu}`)
+console.log(scream('komugi'))
