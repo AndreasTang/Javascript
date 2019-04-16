@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Royal Andreas Navy List</title>
+        <link href="/image/favicon.png" rel="icon">
+        <link href="/styles/styles.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Royal Andreas Navy battle ships list</h1>
+                <h2 class="header__subtitle">You can add new ships here by submit a new ship form below</h2>
+            </div>
+        </header>
+        <div class="actions actions__container--gray">
+            <div class="actions__container">
+                <form id = "first-Form">
+                    <p><input class = "quickinput" name = "newShips" type = "text" placeholder="Enter a new ship name"></p>
+                    <p><input class = "quickinput" name = "newClass" type = "text" placeholder="Enter newship's Class"></p>
+                    <p><input class = "quickinput" name = "newGun" type = "text" placeholder="Enter newship's MainGun"></p>
+                    <p><textarea name = "newDescription" type = "text" placeholder="Enter newship's Description"></textarea></p>
+                    <button class="button">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="subheader">
+            <div class="container">
+                <p class="subtext">Search a ship by name</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="actions__container actions__container--spaced">
+                <input class="input" id = "input-box" type = "text" placeholder="Enter a ship name">
+                <input class="input" type = "checkbox" id = "hideSunk">Hide sunk ships
+                <input class="input" type = "checkbox" id = "hideDetail">Hide detail
+                <select class="dropdown"id="filterBy">
+                    <option value="byEdited">sort by last edited</option>
+                    <option value="byCreated">sort by created</option>
+                    <option value="byAlphabetical">sort by alphabetical</option>
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div id = "ship-filter"></div>
+        </div>
+        <script src = "./scripts/index-bundle.js"></script>
+    </body>
+</html>
+
+
+
+

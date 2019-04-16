@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hangman</title>
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/image/favicon.png" rel="icon">
+    </head>
+    <body>
+        <div>
+            <h2 class="puzzle">This is hangman game</h3>
+            <div id="showCode" class="puzzle"></div>
+            <div id = 'showInf'></div>
+            <p id = 'startText'>Click GameStart to play</p>
+            <p id="button"><button id = 'gameStart' class="button">Game Start</button></p>
+            <form id ='inputForm'>
+                <p><input name = 'guess' type="text" placeholder="Guess a character"><button id = 'send'>Send</button></p>
+            </form>
+        </div>
+        <script src = "./scripts/bundle.js"></script>
+    </body>
+</html>

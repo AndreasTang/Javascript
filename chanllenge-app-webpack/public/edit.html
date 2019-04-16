@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="/styles/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Royal Andreas Navy battle ships list</h1>
+                <h2 class="header__subtitle">You can add new ships here by submit a new ship form below</h2>
+            </div>
+        </header>
+        <div class="actions">
+            <div class="actions__container actions__container--spaced">
+                <p><a href = "index.html">Home</a></p>
+                <p><span id="lastEdited"></span></p>
+            </div>
+        </div>
+        <div class="container">
+            <p><input class = "title-input" type = "text" id = shipNameInput placeholder="New ship name"></p>
+            <p><input class = "title-input" type = "text" id = shipClassInput placeholder="New ship Class"></p>
+            <p><input class = "title-input" type = "text" id = shipGunInput placeholder="New ship Gun"></p>
+            <p><textarea class = "body-input" id="shipDescription"></textarea></p>
+            <p><button class = "button button--secondary" id = "removeShip">Remove ship</button></p>
+        </div>
+        <script src = "./scripts/edit-bundle.js"></script>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "name": "hangman-webpack",
+  "name": "boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "input.js",
@@ -10,16 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "braces": "^2.3.2",
+    "babel-preset-env": "^1.6.1",
     "live-server": "^1.2.1",
-    "webpack": "^4.29.4",
+    "moment": "^2.24.0",
+    "uuidv4": "^3.0.1",
+    "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
   }
